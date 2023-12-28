@@ -2,6 +2,7 @@ const bpmPlaceholder = document.querySelector("#bpm-placeholder");
 const bpmPlaceholder8 = document.querySelector("#bpm-placeholder-8");
 const bpmPlaceholder24 = document.querySelector("#bpm-placeholder-24");
 const square = document.querySelector("#square");
+const reloadButton = document.querySelector("#reload-button");
 
 let timing = [];
 
@@ -47,6 +48,14 @@ function updateBpm() {
     bpmPlaceholder8.innerText = Math.round(eightBpm * 100) / 100;
 }
 
+function resetBpm() {
+    timing = [];
+
+    bpmPlaceholder24.innerText = 0;
+    bpmPlaceholder.innerText = 0;
+    bpmPlaceholder8.innerText = 0;
+}
+
 let backgroundColor = 0x2c;
 function updateBackground() {
     backgroundColor = 0xff;
@@ -67,4 +76,8 @@ document.addEventListener("keydown", e => {
 square.addEventListener("click", e => {
     updateBpm();
     updateBackground();
+});
+
+reloadButton.addEventListener("click", e => {
+    resetBpm();
 });

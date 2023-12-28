@@ -25,3 +25,13 @@ body {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
+
+.navigation {
+    margin-top: 10px;
+}
+
+.reload-button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+}
