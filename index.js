@@ -5,13 +5,6 @@ const square = document.querySelector("#square");
 
 let timing = [];
 
-document.addEventListener("keydown", e => {
-    if (e.code == 'Space') {
-        updateBpm();
-        updateBackground();
-    }
-});
-
 function updateBpm() {
     timing.push(new Date());
 
@@ -63,3 +56,15 @@ setInterval(() => {
     backgroundColor = (backgroundColor - 0x2c) * 0.95 + 0x2c;
     square.style.backgroundColor = `rgb(${backgroundColor}, ${backgroundColor}, ${backgroundColor})`;
 }, 1000/60);
+
+document.addEventListener("keydown", e => {
+    if (e.code == 'Space') {
+        updateBpm();
+        updateBackground();
+    }
+});
+
+square.addEventListener("click", e => {
+    updateBpm();
+    updateBackground();
+});
