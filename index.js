@@ -31,7 +31,7 @@ function updateBpm() {
             eightCount++;
         }
 
-        if (i >= timing.length - 36) {
+        if (timing[timing.length-1] - now <= 10000) {
             twentyeightSum += delta;
             twentyeightCount++;
         }
@@ -51,20 +51,14 @@ function updateBpm() {
     bpmPlaceholder.innerText = Math.round(allBpm * 100) / 100;
     bpmPlaceholder8.innerText = Math.round(eightBpm * 100) / 100;
     bpmPlaceholder24.innerText = Math.round(twentyeightBpm * 100) / 100;
-
-    if (Math.abs(twentyeightBpm - Math.round(twentyeightBpm)) < 0.1) {
-        bpmPlaceholder24.style.color = "#5a8265";
-    } else {
-        bpmPlaceholder24.style.color = "black";
-    }
 }
 
-let backgroundColor = 0;
+let backgroundColor = 0x2c;
 function updateBackground() {
     backgroundColor = 0xff;
 }
 
 setInterval(() => {
-    backgroundColor = backgroundColor * 0.95;
+    backgroundColor = (backgroundColor - 0x2c) * 0.95 + 0x2c;
     square.style.backgroundColor = `rgb(${backgroundColor}, ${backgroundColor}, ${backgroundColor})`;
 }, 1000/60);
