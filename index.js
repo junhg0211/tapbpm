@@ -48,9 +48,10 @@ function updateBpm() {
     let eightBpm = 1000 * 60 / eight;
     let twentyeightBpm = 1000 * 60 / twentyeight;
 
+    bpmPlaceholder24.innerText = Math.round(twentyeightBpm);
+
     bpmPlaceholder.innerText = Math.round(allBpm * 100) / 100;
     bpmPlaceholder8.innerText = Math.round(eightBpm * 100) / 100;
-    bpmPlaceholder24.innerText = Math.round(twentyeightBpm * 100) / 100;
 }
 
 let backgroundColor = 0x2c;
